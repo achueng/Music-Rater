@@ -30,6 +30,8 @@ function spotifySongSearch(songName) {
         console.log(`Album: ${songInfo[0].album.name}`);
         // Preview Link
         console.log(`Preview Link: ${songInfo[0].preview_url}`);
+
+        return data.tracks
     });
 }
 function spotifyAlbumSearch(albumName) {
@@ -90,3 +92,7 @@ function spotifyAlbumSearch(albumName) {
         }
     // spotifySongSearch("Take it easy");
     
+
+    module.exports = {
+        spotifySongSearch: spotifySongSearch
+    }
