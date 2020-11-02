@@ -6,30 +6,61 @@ let spotify = new spot({
       secret: 'ec6e6272897042828a1ec5ab8cf4140e',
     });
 
-    function spotifySearch(query) {
-        if (!query) {
-            query = 'Return of the Mack';
-        }
-        // using songName
-        spotify.search({
-            type: 'track',
-            query: query,
-            limit: 3
-        }, function (err, data) {
-            if (err) {
-                console.log(`Error occurred: ${err}`);
-                return;
-            }
-            let songInfo = data.tracks.items;
-            // Artist Name
-            console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
-            // Song Name
-            console.log(`Song: ${songInfo[0].name}`);
-            // Album Name
-            console.log(`Album: ${songInfo[0].album.name}`);
-            // Preview Link
-            console.log(`Preview Link: ${songInfo[0].preview_url}`);
-        });
+function spotifySongSearch(songName) {
+    if (!songName) {
+        songname = 'Return of the Mack';
     }
-    spotifySearch("Take it easy");
-    spotifySearch();
+    // using songName
+    spotify.search({
+        type: 'track',
+        query: songName,
+        limit: 3
+    }, function (err, data) {
+        if (err) {
+            console.log(`Error occurred: ${err}`);
+            return;
+        }
+        let songInfo = data.tracks.items;
+        console.log(songInfo)
+        // Artist Name
+        console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
+        // Song Name
+        console.log(`Song: ${songInfo[0].name}`);
+        // Album Name
+        console.log(`Album: ${songInfo[0].album.name}`);
+        // Preview Link
+        console.log(`Preview Link: ${songInfo[0].preview_url}`);
+    });
+}
+function spotifyAlbumSearch(albumName) {
+    console.log(albumName)
+    if (!albumName) {
+        albumName = 'Bang Bang';
+    }
+    // using songName
+    spotify.search({
+        type: 'album',
+        query: albumName,
+        limit: 3
+    }, function (err, data) {
+        if (err) {
+            console.log(`Error occurred: ${err}`);
+            return;
+        }
+        console.log(data.albums.items)
+        // let songInfo = data.tracks.items;
+        // console.log(songInfo)
+        // // Artist Name
+        // console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
+        // // Song Name
+        // console.log(`Song: ${songInfo[0].name}`);
+        // // Album Name
+        // console.log(`Album: ${songInfo[0].album.name}`);
+        // // Preview Link
+        // console.log(`Preview Link: ${songInfo[0].preview_url}`);
+    });
+    }
+
+    // spotifySongSearch("Take it easy");
+    spotifyAlbumSearch("Back in Black");
+    
