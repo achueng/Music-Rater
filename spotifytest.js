@@ -8,7 +8,7 @@ let spotify = new spot({
 
 function spotifySongSearch(songName) {
     if (!songName) {
-        songname = 'Return of the Mack';
+        songname = 'Slow Mover';
     }
     // using songName
     spotify.search({
@@ -60,7 +60,33 @@ function spotifyAlbumSearch(albumName) {
         // console.log(`Preview Link: ${songInfo[0].preview_url}`);
     });
     }
-
+    function spotifyArtistSearch(artistName) {
+        console.log(artistName)
+        if (!artistName) {
+            artistName = "DMA's";
+        }
+        // using songName
+        spotify.search({
+            type: 'artist',
+            query: artistName,
+            limit: 3
+        }, function (err, data) {
+            if (err) {
+                console.log(`Error occurred: ${err}`);
+                return;
+            }
+            console.log(data.artists.items)
+            // let songInfo = data.tracks.items;
+            // console.log(songInfo)
+            // // Artist Name
+            // console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
+            // // Song Name
+            // console.log(`Song: ${songInfo[0].name}`);
+            // // Album Name
+            // console.log(`Album: ${songInfo[0].album.name}`);
+            // // Preview Link
+            // console.log(`Preview Link: ${songInfo[0].preview_url}`);
+        });
+        }
     // spotifySongSearch("Take it easy");
-    spotifyAlbumSearch("Back in Black");
     
