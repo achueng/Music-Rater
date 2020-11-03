@@ -1,6 +1,7 @@
 
 const spot = require('node-spotify-api');
 const Spotify = require('node-spotify-api/src');
+const spotifyHelper = require('./spotifytest2')
 
 let spotify = new spot({
       id: 'a7f4e4b98cd0428ca5dc5d7f37d8d907',
@@ -51,9 +52,12 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         limit: 3
     })
     let artistInfo = data.artists.items[0]
+    let artistsAlbums = await spotifyHelper.albumList(artistInfo.id)
+    
     let searchedArtist = {
         name: artistInfo.name,
-        genre: artistInfo.genres
+        genre: artistInfo.genres,
+        albums: artistsAlbums
     }
     return searchedArtist;
 }
@@ -63,4 +67,3 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         spotifyAlbumSearch: spotifyAlbumSearch,
         spotifyArtistSearch: spotifyArtistSearch
     }
- 
