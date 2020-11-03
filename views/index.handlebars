@@ -20,4 +20,22 @@
   </div>
 </nav>
 
-<h1>{{test}}</h1>
+<div class="container">
+    <h1>{{test}}</h1>
+    <form>
+        <label>Please enter in your zip code.</label>
+        <div class="row mb-2">
+            <input type="text" inputmode="numeric" pattern="[0-9]{5}" class="zip-code form-control" placeholder="Zip Code">
+        </div>
+        <label>Search for Song, Artist, or Album</label>
+        <div class="row mb-2">
+            <select class="form-control col-2">
+                <option>Song</option>
+                <option>Artist</option>
+                <option>Album</option>
+            </select>
+            <input type="text" class="search-input form-control col-8" placeholder="Search">
+            <button type="submit" class="search-btn btn btn-primary col-2">Search</button>
+        </div>
+    </form>
+</div>
