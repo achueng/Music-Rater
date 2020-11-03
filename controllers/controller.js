@@ -19,7 +19,15 @@ router.get("/songsearch", async function(req,res){
    res.render("searchedSong", searchedSong)
 
 })
+router.get("/api/albumsearch", async function(req,res){
 
+    console.log('we hit the route!!', req.body);
+    //"step up the morphine is test song to be replaced with user input"
+   let searchedAlbum = await spotifyHelper.spotifyAlbumSearch("Hills End");
+    //render entire obj
+   res.render("searchedAlbum", searchedAlbum)
+
+})
 module.exports = router;
 
 

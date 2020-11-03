@@ -38,9 +38,10 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
         albumName: albumInfo.name,
         albumArtist: albumInfo.artists[0].name,
         releaseDate: albumInfo.releaseDate,
-        albumImage: albumInfo.images[0]
+        albumImage: albumInfo.images[0].url
 
     }
+    console.log(searchedAlbum.albumImage)
     return searchedAlbum;
 }
 
@@ -104,6 +105,7 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
     
 
     module.exports = {
-        spotifySongSearch: spotifySongSearch
+        spotifySongSearch: spotifySongSearch,
+        spotifyAlbumSearch: spotifyAlbumSearch
     }
  spotifyAlbumSearch();
