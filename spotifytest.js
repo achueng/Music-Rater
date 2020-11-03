@@ -26,35 +26,53 @@ async function spotifySongSearch(songName="Slow Mover") {
    return searchedSong;
 }
 
-
-function spotifyAlbumSearch(albumName) {
-    console.log(albumName)
-    if (!albumName) {
-        albumName = 'Bang Bang';
-    }
-    // using songName
-    spotify.search({
+async function spotifyAlbumSearch( albumName = "Hills End"){
+    let data = await spotify.search({
         type: 'album',
         query: albumName,
         limit: 3
-    }, function (err, data) {
-        if (err) {
-            console.log(`Error occurred: ${err}`);
-            return;
-        }
-        console.log(data.albums.items)
-        // let songInfo = data.tracks.items;
-        // console.log(songInfo)
-        // // Artist Name
-        // console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
-        // // Song Name
-        // console.log(`Song: ${songInfo[0].name}`);
-        // // Album Name
-        // console.log(`Album: ${songInfo[0].album.name}`);
-        // // Preview Link
-        // console.log(`Preview Link: ${songInfo[0].preview_url}`);
-    });
+    })
+    let albumInfo = data.albums.items[0]
+    let searchedAlbum = {
+
+        albumName: albumInfo.name,
+        albumArtist: albumInfo.artists[0].name,
+        releaseDate: albumInfo.releaseDate,
+        albumImage: albumInfo.images[0].url
+
     }
+    console.log(searchedAlbum.albumImage)
+    return searchedAlbum;
+}
+
+// function spotifyAlbumSearch(albumName) {
+//     console.log(albumName)
+//     if (!albumName) {
+//         albumName = 'Bang Bang';
+//     }
+//     // using songName
+//     spotify.search({
+//         type: 'album',
+//         query: albumName,
+//         limit: 3
+//     }, function (err, data) {
+//         if (err) {
+//             console.log(`Error occurred: ${err}`);
+//             return;
+//         }
+//         console.log(data.albums.items)
+//         // let songInfo = data.tracks.items;
+//         // console.log(songInfo)
+//         // // Artist Name
+//         // console.log(`Artist(s): ${songInfo[0].artists[0].name}`);
+//         // // Song Name
+//         // console.log(`Song: ${songInfo[0].name}`);
+//         // // Album Name
+//         // console.log(`Album: ${songInfo[0].album.name}`);
+//         // // Preview Link
+//         // console.log(`Preview Link: ${songInfo[0].preview_url}`);
+//     });
+//     }
     function spotifyArtistSearch(artistName) {
         console.log(artistName)
         if (!artistName) {
@@ -87,6 +105,7 @@ function spotifyAlbumSearch(albumName) {
     
 
     module.exports = {
-        spotifySongSearch: spotifySongSearch
+        spotifySongSearch: spotifySongSearch,
+        spotifyAlbumSearch: spotifyAlbumSearch
     }
- 
+ spotifyAlbumSearch();
