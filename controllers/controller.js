@@ -24,7 +24,7 @@ router.post("/api/albumsearch", async function(req,res){
 
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedAlbum = await spotifyHelper.spotifyAlbumSearch("Hills End");
+   let searchedAlbum = await spotifyHelper.spotifyAlbumSearch(req.body.music);
     //render entire obj
     res.json(searchedAlbum);
 
