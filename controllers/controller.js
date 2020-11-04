@@ -33,7 +33,7 @@ router.post("/api/artistsearch", async function(req,res){
 
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedArtist = await spotifyHelper.spotifyArtistSearch("DMA's");
+   let searchedArtist = await spotifyHelper.spotifyArtistSearch(req.body.music);
     //render entire obj
     res.json(searchedArtist);
 
