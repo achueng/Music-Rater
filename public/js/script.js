@@ -32,18 +32,42 @@ $( document ).ready(function() {
         $.ajax(searchFor, {
             type: "POST",
             data: {music: musicSearch}
-        }).then(function(res) {
+        }).then(function(data) {
             //.then(data)  of ajax call has all the spotifyResults from the backend route!! /search
-            console.log(res);
+            // console.log(data);
+            
+            switch (userSelect) {
+                case "Song": 
+                    songInfo();
+                    break;
+                case "Artist":
+                    artistInfo();
+                    break;
+                case "Album":
+                    albumInfo();
+                    break;
+            }
             // search by song
+            function songInfo() {
+                let searchedSong = data;
+                return searchedSong;
+            }
             // let song = $("<div>").text(res.Song);
             // $("#song-info").html(song);
 
             // search by artist
+            function artistInfo() {
+                let searchedArtist = data;
+                return searchedArtist;
+            }
             // let artist = $("<div>").text(res.name);
             // $("#song-info").html(artist);
 
             // search by album
+            function albumInfo() {
+                let searchedAlbum = data;
+                return searchedAlbum;
+            }
             // let album = $("<div>").text(res.albumName);
             // $("#song-info").html(album);
 
