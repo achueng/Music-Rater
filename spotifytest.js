@@ -34,15 +34,17 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
         limit: 3
     })
     let albumInfo = data.albums.items[0]
+    let albumTracks = await spotifyHelper.albumTracks(albumInfo.id)
     let searchedAlbum = {
 
         albumName: albumInfo.name,
         albumArtist: albumInfo.artists[0].name,
         releaseDate: albumInfo.releaseDate,
-        albumImage: albumInfo.images[0].url
+        albumImage: albumInfo.images[0].url,
+        albumTracks: albumTracks
 
     }
-    console.log(searchedAlbum.albumImage)
+    console.log(searchedAlbum.albumTracks)
     return searchedAlbum;
 }
 async function spotifyArtistSearch( artistName = "DMA's"){
@@ -67,3 +69,4 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         spotifyAlbumSearch: spotifyAlbumSearch,
         spotifyArtistSearch: spotifyArtistSearch
     }
+spotifyAlbumSearch();

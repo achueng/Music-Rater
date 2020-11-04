@@ -6,7 +6,7 @@ var spotifyApi = new SpotifyWebApi({
   clientId: 'fcecfc72172e4cd267473117a17cbd4d',
   clientSecret: 'a6338157c9bb5ac9c71924cb2940e1a7',
 });
-spotifyApi.setAccessToken('BQCOvmPwRYOYl1ObD5rUFvn5H9mszBlFXUoIvDww0roUJgez--WYASIK4CS-KHsDhIng4i8dZeXfVlUNHl1u5NkZ2rJ2w8HxC94d1MCJzejX1_bpD5O9GSfEY3RismrJNBaHMBZ8YmJw');
+spotifyApi.setAccessToken('BQBbq6PyqrtggXZenfwZ5Omw-UFj2xPx9zIHsNEFg3XVOBBKq_RyVLBs0SYmZ57bqHb3E3JwuXCYeZ20pTNAyYD38icPCk3q8AUZqz2yT7d386jJn1WndAg2GGM8fTbma9-SwV5wudtN');
 
 async function albumList(artistID){ 
     spotifyApi.getArtistAlbums(artistID).then(
@@ -23,7 +23,16 @@ async function albumList(artistID){
     }
   );
 }
-
+async function albumTracks(albumID){
+    spotifyApi.getAlbumTracks(albumID)
+  .then(function(data) {
+      albumTracksList = data.body.items.map(item => item.name)
+    console.log(albumTracksList);
+  }, function(err) {
+    console.log('Something went wrong!', err);
+  });
+}
 module.exports = {
-    albumList: albumList
+    albumList: albumList,
+    albumTracks: albumTracks
 }
