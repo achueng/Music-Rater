@@ -13,7 +13,7 @@ router.get("/", function(req,res){
 router.post("/api/songsearch", async function(req,res){
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedSong = await spotifyHelper.spotifySongSearch(req.body.song);
+   let searchedSong = await spotifyHelper.spotifySongSearch(req.body.music);
    console.log("searchedSong:", searchedSong);
     //render entire obj
 //    res.render("searchedSong", searchedSong)
