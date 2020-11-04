@@ -10,31 +10,32 @@ router.get("/", function(req,res){
 })
 
 //have to make async to wait for spotify to load results
-router.get("/songsearch", async function(req,res){
-
+router.post("/api/songsearch", async function(req,res){
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedSong = await spotifyHelper.spotifySongSearch("step up the morphine");
+   let searchedSong = await spotifyHelper.spotifySongSearch(req.body.song);
+   console.log("searchedSong:", searchedSong);
     //render entire obj
-   res.render("searchedSong", searchedSong)
+//    res.render("searchedSong", searchedSong)
+    res.json(searchedSong);
 
 })
-router.get("/api/albumsearch", async function(req,res){
+router.post("/api/albumsearch", async function(req,res){
 
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedAlbum = await spotifyHelper.spotifyAlbumSearch("Hills End");
+   let searchedAlbum = await spotifyHelper.spotifyAlbumSearch(req.body.music);
     //render entire obj
-   res.render("searchedAlbum", searchedAlbum)
+    res.json(searchedAlbum);
 
 })
-router.get("/api/artistsearch", async function(req,res){
+router.post("/api/artistsearch", async function(req,res){
 
     console.log('we hit the route!!', req.body);
     //"step up the morphine is test song to be replaced with user input"
-   let searchedArtist = await spotifyHelper.spotifyArtistSearch("DMA's");
+   let searchedArtist = await spotifyHelper.spotifyArtistSearch(req.body.music);
     //render entire obj
-   res.render("searchedArtist", searchedArtist)
+    res.json(searchedArtist);
 
 })
 module.exports = router;
