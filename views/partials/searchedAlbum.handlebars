@@ -1,0 +1,27 @@
+<div class = "card">
+    <img class="card-img-top" src={{albumImage}} alt="AlbumCover">
+    <div class="card-body">
+        <h1 class="card-title">{{albumName}}</h1>
+        <h2 >Artist: {{albumArtist}}</h2>
+        <h2>Release Date: {{releaseDate}}</h2>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Track List
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <ul>
+                    {{#each albumTracks}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn btn-primary">Save Album</a>
+    </div>
+</div>

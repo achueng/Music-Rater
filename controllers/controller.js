@@ -35,7 +35,8 @@ router.post("/api/artistsearch", async function(req,res){
     //"step up the morphine is test song to be replaced with user input"
    let searchedArtist = await spotifyHelper.spotifyArtistSearch(req.body.music);
     //render entire obj
-    res.json(searchedArtist);
+    res.render("searchedArtist", searchedArtist);
+    // res.json(searchedArtist);
 
 })
 module.exports = router;
