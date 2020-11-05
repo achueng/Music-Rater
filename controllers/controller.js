@@ -4,6 +4,8 @@ const router = express.Router();
 
 const spotifyHelper = require('../spotifytest.js')
 
+var record = require("../models/model");
+
 router.get("/", function(req,res){
     let test = {test: "Hello World!"};
     res.render("index", test);
