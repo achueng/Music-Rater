@@ -70,6 +70,7 @@ $( document ).ready(function() {
             let discography = data.artistsAlbums.map(element => {
                 element = "<li>"+element+"</li>"
                 return element
+                // console.log(discography)
             })
             let genres = data.genre.join(", ");
             let artist = `
