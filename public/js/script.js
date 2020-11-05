@@ -1,3 +1,5 @@
+const { on } = require("../../config/connection");
+
 $( document ).ready(function() {
 
     // If user not logged in
@@ -55,10 +57,10 @@ $( document ).ready(function() {
             let song = `
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title">${data.Song}</h3>
-                    <h4>Artist: ${data.Artist}</h4>
-                    <h4>Album: ${data.Album}</h4>
-                    <button class="save-btn btn btn-primary" value="song">Like Song</button>
+                    <h3 class="card-title" id = "songName">${data.Song}</h3>
+                    <h4>Artist: <span id = "songArtist"${data.Artist}</span></h4>
+                    <h4>Album: <span id = "songAlbum"${data.Album}</span></h4>
+                    <button class="save-btn btn btn-primary" id = "save-btn-song" value="song">Like Song</button>
                 </div>
             </div>
             `;
@@ -76,7 +78,7 @@ $( document ).ready(function() {
             let artist = `
             <div class = "card">
                 <div class="card-body">
-                    <h3 class="card-title">${data.name}</h3>
+                    <h3 class="card-title" id = "artist">${data.name}</h3>
                     <h4>Genres: ${genres}</h4>
                     <div class="accordion" id="accordionExample">
                     <div class="card">
@@ -94,7 +96,7 @@ $( document ).ready(function() {
                         </div>
                     </div>
                 </div>
-                    <button class="save-btn btn btn-primary" value="artist">Like Artist</button>
+                    <button class="save-btn btn btn-primary" id = "save-btn-artist" value="artist">Like Artist</button>
                 </div>
             </div>
             `;
@@ -112,8 +114,8 @@ $( document ).ready(function() {
             <div class = "card">
                 <img class="card-img-top" src=${data.albumImage} alt="AlbumCover">
                 <div class="card-body">
-                    <h3 class="card-title">${data.albumName}</h3>
-                    <h4>Artist: ${data.albumArtist}</h4>
+                    <h3 class="card-title" id= "album-name">${data.albumName}</h3>
+                    <h4 id >Artist: <span id="albumArtist"> ${data.albumArtist}</span></h4>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
@@ -130,13 +132,67 @@ $( document ).ready(function() {
                             </div>
                         </div>
                     </div>
-                    <button class="save-btn btn btn-primary" value="album">Like Album</button>
+                    <button class="save-btn btn btn-primary", id = "save-btn-album" value="album">Like Album</button>
                 </div>
             </div>
             `;
             $("#song-info").html(album);
         }
-        
-    });
+        $(".save-btn-album").on("click", function(event) {
+            event.preventDefault();
+            var newAlbum = {
+                albumName = $("#album-name").text(),
+                albumArtist = $("#albumArtist").text()
+            };
+            
+            $.ajax("/api/likedAlbums", {
+                type: "POST",
+                data: newAlbum
+            }).then(
+                function() {
+                    console.log("Successfully Liked");
+                }
+            )
+        });
 
-});  
+        $(".save-btn-artist").on("click", function(event) {
+            event.preventDefault();
+            var newArtist = {
+                artist = $("#artist").text(),
+                
+            };
+            
+            $.ajax("/api/likedArtists", {
+                type: "POST",
+                data: newArtist
+            }).then(
+                function() {
+                    console.log("Successfully Liked");
+                }
+            )
+        });
+
+        $(".save-btn-song").on("click", function(event) {
+            event.preventDefault();
+            var newSong = {
+                songName = $("#songName").text(),
+                songArtist = $("#songArtist").text(),
+                songAlbum = $("#songAlbum").text()
+            };
+            
+            $.ajax("/api/likedSongs", {
+                type: "POST",
+                data: newSong
+            }).then(
+                function() {
+                    console.log("Successfully Liked");
+                }
+            )
+        });
+    
+    })
+
+});
+
+      
+
