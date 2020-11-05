@@ -1,4 +1,3 @@
-const { on } = require("../../config/connection");
 
 $( document ).ready(function() {
 
@@ -147,8 +146,8 @@ $( document ).ready(function() {
         $(".save-btn-album").on("click", function(event) {
             event.preventDefault();
             var newAlbum = {
-                albumName = $("#album-name").text(),
-                albumArtist = $("#albumArtist").text()
+                albumName : $("#album-name").text(),
+                albumArtist : $("#albumArtist").text()
             };
             
             $.ajax("/api/likedAlbums", {
@@ -164,7 +163,7 @@ $( document ).ready(function() {
         $(".save-btn-artist").on("click", function(event) {
             event.preventDefault();
             var newArtist = {
-                artist = $("#artist").text(),
+                artist: $("#artist").text(),
                 
             };
             
@@ -181,9 +180,9 @@ $( document ).ready(function() {
         $(".save-btn-song").on("click", function(event) {
             event.preventDefault();
             var newSong = {
-                songName = $("#songName").text(),
-                songArtist = $("#songArtist").text(),
-                songAlbum = $("#songAlbum").text()
+                songName : $("#songName").text(),
+                songArtist : $("#songArtist").text(),
+                songAlbum : $("#songAlbum").text()
             };
             
             $.ajax("/api/likedSongs", {
