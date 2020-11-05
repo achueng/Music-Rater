@@ -4,9 +4,12 @@ const router = express.Router();
 
 const spotifyHelper = require('../spotifytest.js')
 
-router.get("/", function(req,res){
-    let test = {test: "Hello World!"};
-    res.render("index", test);
+router.get("/", function(req,res) {
+    res.render("index", {});
+})
+
+router.get("/topMusic", function(req, res) {
+    res.render("topMusic", {});
 })
 
 //have to make async to wait for spotify to load results
