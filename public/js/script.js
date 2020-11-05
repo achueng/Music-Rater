@@ -76,10 +76,12 @@ $( document ).ready(function() {
             })
             let genres = data.genre.join(", ");
             let artist = `
-            <div class = "card">
+            <div class = "card" id = "testwidth">
+            <img class="card-img-top mx-auto" src=${data.artistImage}  alt="Artist Image">
                 <div class="card-body">
-                    <h3 class="card-title" id = "artist">${data.name}</h3>
-                    <h4>Genres: ${genres}</h4>
+                    <h3 class="card-title">${data.name}</h3>
+                    <h5>Genres:</h5>
+                    <p>${genres}</p>
                     <div class="accordion" id="accordionExample">
                     <div class="card">
                         <div class="card-header" id="headingOne">
@@ -92,7 +94,9 @@ $( document ).ready(function() {
 
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
+                        <ol>
                         ${discography.join("")}
+                        </ol>
                         </div>
                     </div>
                 </div>
@@ -128,7 +132,9 @@ $( document ).ready(function() {
 
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
+                            <ol>
                             ${tracks.join("")}
+                            </ol>
                             </div>
                         </div>
                     </div>

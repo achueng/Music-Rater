@@ -6,7 +6,7 @@ var spotifyApi = new SpotifyWebApi({
   clientId: 'fcecfc72172e4cd267473117a17cbd4d',
   clientSecret: 'a6338157c9bb5ac9c71924cb2940e1a7',
 });
-spotifyApi.setAccessToken('BQAoAfJVvimm3EogmtUEpOBlhiz3ozEakiGtUuDkZSB_f3HJZFgVlIjlCd7S7bpxIAivoq-Raqvt80hSZqpyv4-jTtzn6AdaL5eggQy1tbUCabt9-M534xy69MatkTGwB1yIeH0hDW-y');
+spotifyApi.setAccessToken('BQADoyT8ExOO-2ptwEG6Twx5RpBce6eYB9RNeC0zKv3fRbDQsxHgMxjzfyzmuq0-hdo_0Q1bX2rIDtZxsqJrSAAIeA4g4EkygpHpzZ3cD_oxDQivi9uRNQT9ahlYmaoNS1OGmzwnWj31');
 
 async function albumList(artistID){ 
    let artist_albums = await spotifyApi.getArtistAlbums(artistID).then(
