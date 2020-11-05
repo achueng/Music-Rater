@@ -27,5 +27,28 @@ router.post("/api/likedArtists", async function(req, res) {
     })
     
 })
+router.get("/topSongs", function(req, res) {
+    song.all(function(data) {
+      var hbsObject = {
+        songs: data
+      };
+      console.log(hbsObject);
+      res.render("topSongs", hbsObject);
+    });
+  });
+
+  router.get("/topArtists", function(req, res) {
+    artist.all(function(data) {
+      var hbsObject = {
+        topArtists: data
+      };
+      console.log(hbsObject);
+      res.render("topArtists", hbsObject);
+    });
+  });
+// router.get("/api/likedSongs", function (req, res){
+//     console.log(res);
+// })
+
 
 module.exports = router;
