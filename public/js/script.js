@@ -67,29 +67,12 @@ $( document ).ready(function() {
 
         // search by artist
         function artistInfo(data) {
+            let genres = data.genre.join(", ");
             let artist = `
             <div class = "card">
                 <div class="card-body">
-                    <h1 class="card-title">${data.name}</h1>
-                    <h2>Genre: {{genre}}</h2>
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Album List
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <ul>
-                                {{#each albums}}
-                                    <li>{{this}}</li>
-                                {{/each}}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="card-title">${data.name}</h3>
+                    <h4>Genres: ${genres}</h4>
                     <button class="save-btn btn btn-primary" value="artist">Save Artist</button>
                 </div>
             </div>
