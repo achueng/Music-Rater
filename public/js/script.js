@@ -84,29 +84,10 @@ $( document ).ready(function() {
         function albumInfo(data) {
             let album = `
             <div class = "card">
-                <img class="card-img-top" src={{albumImage}} alt="AlbumCover">
+                <img class="card-img-top" src=${data.albumImage} alt="AlbumCover">
                 <div class="card-body">
-                    <h1 class="card-title">{{albumName}}</h1>
-                    <h2 >Artist: {{albumArtist}}</h2>
-                    <h2>Release Date: {{releaseDate}}</h2>
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Track List
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                <ul>
-                                {{#each albumTracks}}
-                                    <li>{{this}}</li>
-                                {{/each}}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="card-title">${data.albumName}</h3>
+                    <h4>Artist: ${data.albumArtist}</h4>
                     <button class="save-btn btn btn-primary" value="album">Save Album</button>
                 </div>
             </div>
