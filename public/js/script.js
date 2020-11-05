@@ -58,8 +58,8 @@ $( document ).ready(function() {
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title" id = "songName">${data.Song}</h3>
-                    <h4>Artist: <span id = "songArtist"${data.Artist}</span></h4>
-                    <h4>Album: <span id = "songAlbum"${data.Album}</span></h4>
+                    <h4>Artist: <span id = "songArtist">${data.Artist}</span></h4>
+                    <h4>Album: <span id = "songAlbum">${data.Album}</span></h4>
                     <button class="save-btn btn btn-primary" id = "save-btn-song" value="song">Like Song</button>
                 </div>
             </div>
@@ -79,7 +79,7 @@ $( document ).ready(function() {
             <div class = "card" id = "testwidth">
             <img class="card-img-top mx-auto" src=${data.artistImage}  alt="Artist Image">
                 <div class="card-body">
-                    <h3 class="card-title">${data.name}</h3>
+                    <h3 class="card-title" id ="artist">${data.name}</h3>
                     <h5>Genres:</h5>
                     <p>${genres}</p>
                     <div class="accordion" id="accordionExample">
