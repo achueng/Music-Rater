@@ -23,7 +23,9 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "mysql": "^2.18.1",
-    "node-spotify-api": "^1.1.1"
+    "node-spotify-api": "^1.1.1",
+    "spotify-web-api-js": "^1.5.1",
+    "spotify-web-api-node": "^5.0.0"
   },
   "devDependencies": {}
 }

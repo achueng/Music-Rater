@@ -10,7 +10,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Album</a>
+        <a class="nav-link" href="#">My Music</a>
       </li>
     </ul>
     <div class="my-2 my-lg-0">
@@ -20,14 +20,24 @@
   </div>
 </nav>
 
-<h1>{{test}}</h1>
-
-<script>
-
-
-  //on click stuff!! do ajax call to send stuff from form to the backend!!! to taht /search route!!
-
-  //.then(data)  of ajax call has all the spotifyResults from the backend route!! /search
-
-  
-</script>
+<div class="container">
+    <h1>{{test}}</h1>
+    <form class="user-input">
+        {{!-- <label>Please enter in your zip code.</label>
+        <div class="row mb-2">
+            <input type="text" inputmode="numeric" pattern="[0-9]{5}" class="zip-code form-control" placeholder="Zip Code">
+        </div> --}}
+        <label>Search for Song, Artist, or Album</label>
+        <div class="row mb-2">
+            <select id="search-opt" class="form-control col-2">
+                <option>Song</option>
+                <option>Artist</option>
+                <option>Album</option>
+            </select>
+            <input type="text" class="search-input form-control col-8" placeholder="Search">
+            <button type="submit" class="search-btn btn btn-primary col-2">Search</button>
+        </div>
+    </form>
+    <div id="song-info">
+    </div>
+</div>
