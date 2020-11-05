@@ -23,8 +23,16 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
 var orm = {
-    all: function(tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    all: function(tableInput, col, cb) {
+        // var queryString = "SELECT * FROM " + tableInput + ";";
+        var queryString = `SELECT 
+        ${col},
+        COUNT(*)
+        FROM
+        ${tableInput}
+        GROUP BY ${col}
+        HAVING COUNT(*) >= 2
+        ORDER BY COUNT(*) DESC;`
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
@@ -52,6 +60,7 @@ var orm = {
           cb(result);
         });
       }
+      
 };
 
 module.exports = orm;
