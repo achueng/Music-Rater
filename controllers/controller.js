@@ -6,11 +6,6 @@ const spotifyHelper = require('../spotifytest.js')
 
 var record = require("../models/model");
 
-router.get("/", function(req,res){
-    let test = {test: "Hello World!"};
-    res.render("index", test);
-})
-
 //have to make async to wait for spotify to load results
 router.post("/api/songsearch", async function(req,res){
     console.log('we hit the route!!', req.body);

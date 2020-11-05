@@ -55,13 +55,14 @@ async function spotifyArtistSearch( artistName = "DMA's"){
     })
     let artistInfo = data.artists.items[0]
     let artistsAlbums = await spotifyHelper.albumList(artistInfo.id)
-    
+    console.log(artistInfo)
     let searchedArtist = {
         name: artistInfo.name,
         genre: artistInfo.genres,
-        artistsAlbums: artistsAlbums
+        artistsAlbums: artistsAlbums,
+        artistImage: artistInfo.images[0].url
     }
-    console.log(searchedArtist)
+    // console.log(searchedArtist)
     return searchedArtist;
 }
 
@@ -70,3 +71,4 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         spotifyAlbumSearch: spotifyAlbumSearch,
         spotifyArtistSearch: spotifyArtistSearch
     }
+spotifyArtistSearch();
