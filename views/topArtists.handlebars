@@ -9,8 +9,14 @@
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/topSongs">Top Songs</a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="/topArtists">Top Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/topAlbums">Top Albums</a>
       </li>
     </ul>
   </div>
@@ -29,28 +35,21 @@
       <tr>
         <th scope="col"></th>
         <th scope="col">Artist</th>
+        <th scope="col">Number of Likes</th>
       </tr>
     </thead>
     <tbody>
+        {{#each topArtists}}
+        
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{id}}</th>
+        <td>{{artist}}</td>
+        <td>{{'COUNT(*)'}}</td>
+        
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      {{/each}}
     </tbody>
+
   </table>
         
  

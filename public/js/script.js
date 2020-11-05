@@ -51,8 +51,8 @@ $( document ).ready(function() {
             $("#save-btn-album").on("click", function(event) {
                 event.preventDefault();
                 var newAlbum = {
-                    albumName : $("#album-name").text(),
-                    albumArtist : $("#albumArtist").text()
+                    album : $("#album-name").text(),
+                    artist : $("#albumArtist").text()
                 };
                 
                 $.ajax("/api/likedAlbums", {
@@ -86,9 +86,9 @@ $( document ).ready(function() {
             $("#save-btn-song").on("click", function(event) {
                 event.preventDefault();
                 var newSong = {
-                    songName : $("#songName").text(),
-                    songArtist : $("#songArtist").text(),
-                    songAlbum : $("#songAlbum").text()
+                    song : $("#songName").text(),
+                    artist : $("#songArtist").text(),
+                    album : $("#songAlbum").text()
                 };
                 
                 $.ajax("/api/likedSongs", {

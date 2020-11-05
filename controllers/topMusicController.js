@@ -15,9 +15,12 @@ router.post("/api/likedAlbums", async function(req, res) {
 })
 
 router.post("/api/likedSongs", async function(req, res) {
+    console.log("test", req.body);
     song.create(["song", "artist", "album"], [req.body.song, req.body.artist, req.body.album], function (result) {
         res.json({ id: result.insertId});
+        // console.log("testing", result);
     })
+    
     
 })
 
@@ -30,13 +33,23 @@ router.post("/api/likedArtists", async function(req, res) {
 router.get("/topSongs", function(req, res) {
     song.all(function(data) {
       var hbsObject = {
-        songs: data
+        topSongs: data
       };
       console.log(hbsObject);
       res.render("topSongs", hbsObject);
     });
-  });
 
+  });
+  router.get("/topAlbums", function(req, res) {
+    album.all(function(data) {
+      var hbsObject = {
+        topAlbums: data
+      };
+      console.log(hbsObject);
+      res.render("topAlbums", hbsObject);
+    });
+
+  });
   router.get("/topArtists", function(req, res) {
     artist.all(function(data) {
       var hbsObject = {
