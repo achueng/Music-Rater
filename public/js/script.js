@@ -86,9 +86,9 @@ $( document ).ready(function() {
             $("#save-btn-song").on("click", function(event) {
                 event.preventDefault();
                 var newSong = {
-                    songName : $("#songName").text(),
-                    songArtist : $("#songArtist").text(),
-                    songAlbum : $("#songAlbum").text()
+                    song : $("#songName").text(),
+                    artist : $("#songArtist").text(),
+                    album : $("#songAlbum").text()
                 };
                 
                 $.ajax("/api/likedSongs", {

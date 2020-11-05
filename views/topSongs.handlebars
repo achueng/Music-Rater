@@ -31,28 +31,23 @@
         <th scope="col">Song</th>
         <th scope="col">Album</th>
         <th scope="col">Artist</th>
+        <th scope="col">Number of Likes</th>
       </tr>
     </thead>
     <tbody>
+        {{#each topSongs}}
+        
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{id}}</th>
+        <td>{{song}}</td>
+        <td>{{artist}}</td>
+        <td>{{album}}</td>
+        <td>{{'COUNT(*)'}}</td>
+        
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      {{/each}}
     </tbody>
+
   </table>
         
  
