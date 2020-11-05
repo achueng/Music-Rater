@@ -39,12 +39,11 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
 
         albumName: albumInfo.name,
         albumArtist: albumInfo.artists[0].name,
-        releaseDate: albumInfo.releaseDate,
+        releaseDate: albumInfo.release_date,
         albumImage: albumInfo.images[0].url,
         albumTracks: albumTracks
 
     }
-    console.log(searchedAlbum.albumTracks)
     return searchedAlbum;
 }
 async function spotifyArtistSearch( artistName = "DMA's"){
@@ -61,6 +60,7 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         genre: artistInfo.genres,
         albums: artistsAlbums
     }
+    console.log(searchedArtist)
     return searchedArtist;
 }
 
@@ -69,4 +69,3 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         spotifyAlbumSearch: spotifyAlbumSearch,
         spotifyArtistSearch: spotifyArtistSearch
     }
-spotifyAlbumSearch();
