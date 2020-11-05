@@ -4,8 +4,6 @@ const router = express.Router();
 
 const spotifyHelper = require('../spotifytest.js')
 
-// const record = require("../models/model");
-
 router.get("/", function(req,res){
     res.render("index", {})
 })
@@ -44,6 +42,8 @@ router.post("/api/artistsearch", async function(req,res){
     res.json(searchedArtist);
 
 })
+
+
 module.exports = router;
 
 
