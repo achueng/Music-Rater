@@ -13,6 +13,11 @@ const artist = require("../models/artist");
 router.get("/", function(req,res){
     res.render("index", {})
 })
+
+router.get("/topMusic", function(req, res) {
+    res.render("topMusic", {});
+})
+
 //have to make async to wait for spotify to load results
 router.post("/api/songsearch", async function(req,res){
     console.log('we hit the route!!', req.body);
