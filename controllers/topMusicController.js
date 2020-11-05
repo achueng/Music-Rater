@@ -38,8 +38,18 @@ router.get("/topSongs", function(req, res) {
       console.log(hbsObject);
       res.render("topSongs", hbsObject);
     });
-  });
 
+  });
+  router.get("/topAlbums", function(req, res) {
+    album.all(function(data) {
+      var hbsObject = {
+        topAlbums: data
+      };
+      console.log(hbsObject);
+      res.render("topAlbums", hbsObject);
+    });
+
+  });
   router.get("/topArtists", function(req, res) {
     artist.all(function(data) {
       var hbsObject = {

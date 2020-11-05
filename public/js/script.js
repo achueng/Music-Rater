@@ -51,8 +51,8 @@ $( document ).ready(function() {
             $("#save-btn-album").on("click", function(event) {
                 event.preventDefault();
                 var newAlbum = {
-                    albumName : $("#album-name").text(),
-                    albumArtist : $("#albumArtist").text()
+                    album : $("#album-name").text(),
+                    artist : $("#albumArtist").text()
                 };
                 
                 $.ajax("/api/likedAlbums", {
