@@ -10,7 +10,7 @@ let spotify = new spot({
 
  // made async to be able to retrieve obj searchedSong   
 // "Slow Mover is now the default song"
-async function spotifySongSearch(songName="Slow Mover") {
+async function spotifySongSearch(songName = "Slow Mover") {
     let data = await spotify.search({
         type: 'track',
         query: songName,
@@ -44,6 +44,7 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
         albumTracks: albumTracks
 
     }
+    console.log(searchedAlbum)
     return searchedAlbum;
 }
 async function spotifyArtistSearch( artistName = "DMA's"){
@@ -58,7 +59,7 @@ async function spotifyArtistSearch( artistName = "DMA's"){
     let searchedArtist = {
         name: artistInfo.name,
         genre: artistInfo.genres,
-        albums: artistsAlbums
+        artistsAlbums: artistsAlbums
     }
     console.log(searchedArtist)
     return searchedArtist;
