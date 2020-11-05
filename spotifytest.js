@@ -44,6 +44,7 @@ async function spotifyAlbumSearch( albumName = "Hills End"){
         albumTracks: albumTracks
 
     }
+    console.log(searchedAlbum)
     return searchedAlbum;
 }
 async function spotifyArtistSearch( artistName = "DMA's"){
@@ -58,7 +59,7 @@ async function spotifyArtistSearch( artistName = "DMA's"){
     let searchedArtist = {
         name: artistInfo.name,
         genre: artistInfo.genres,
-        albums: artistsAlbums
+        artistsAlbums: artistsAlbums
     }
     console.log(searchedArtist)
     return searchedArtist;

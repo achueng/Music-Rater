@@ -58,7 +58,7 @@ $( document ).ready(function() {
                     <h3 class="card-title">${data.Song}</h3>
                     <h4>Artist: ${data.Artist}</h4>
                     <h4>Album: ${data.Album}</h4>
-                    <button class="save-btn btn btn-primary" value="song">Save Song</button>
+                    <button class="save-btn btn btn-primary" value="song">Like Song</button>
                 </div>
             </div>
             `;
@@ -67,13 +67,33 @@ $( document ).ready(function() {
 
         // search by artist
         function artistInfo(data) {
+            let discography = data.artistsAlbums.map(element => {
+                element = "<li>"+element+"</li>"
+                return element
+            })
             let genres = data.genre.join(", ");
             let artist = `
             <div class = "card">
                 <div class="card-body">
                     <h3 class="card-title">${data.name}</h3>
                     <h4>Genres: ${genres}</h4>
-                    <button class="save-btn btn btn-primary" value="artist">Save Artist</button>
+                    <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Discography
+                            </button>
+                        </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                        ${discography.join("")}
+                        </div>
+                    </div>
+                </div>
+                    <button class="save-btn btn btn-primary" value="artist">Like Artist</button>
                 </div>
             </div>
             `;
@@ -82,13 +102,34 @@ $( document ).ready(function() {
 
         // search by album
         function albumInfo(data) {
+            let tracks = data.albumTracks.map(element => {
+                element = "<li>" + element + "</li>"
+                return element;
+            });
+            // console.log(tracks.join(""));
             let album = `
             <div class = "card">
                 <img class="card-img-top" src=${data.albumImage} alt="AlbumCover">
                 <div class="card-body">
                     <h3 class="card-title">${data.albumName}</h3>
                     <h4>Artist: ${data.albumArtist}</h4>
-                    <button class="save-btn btn btn-primary" value="album">Save Album</button>
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Track List
+                                </button>
+                            </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                            ${tracks.join("")}
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save-btn btn btn-primary" value="album">Like Album</button>
                 </div>
             </div>
             `;
