@@ -1,6 +1,34 @@
-/* #testwidth{
-    width: 600px
-} */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 24px;
+    font-family: 'Turret Road', cursive;
+    line-height: 32px;
+    background-color: #ece1be;
+}
+
+.navbar {
+    font-family: 'Abril Fatface', cursive;
+    background-color: #d9cdb6 !important;
+}
+
+.navbar-brand {
+    font-size: 32px;
+}
+
+.hero-img {
+    width: 60%;
+    margin: auto;
+}
+
+.search-btn {
+    background-color: #a68e6c;
+}
+
 #song-info{
     text-align: center;
     margin:auto;
