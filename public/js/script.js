@@ -48,6 +48,58 @@ $( document ).ready(function() {
                     albumInfo(data);
                     break;
             }
+            $("#save-btn-album").on("click", function(event) {
+                event.preventDefault();
+                var newAlbum = {
+                    albumName : $("#album-name").text(),
+                    albumArtist : $("#albumArtist").text()
+                };
+                
+                $.ajax("/api/likedAlbums", {
+                    type: "POST",
+                    data: newAlbum
+                }).then(
+                    function() {
+                        console.log("Successfully Liked");
+                    }
+                )
+            });
+    
+            $("#save-btn-artist").on("click", function(event) {
+                event.preventDefault();
+                console.log("Successfully Liked");
+                var newArtist = {
+                    artist: $("#artist").text(),
+                    
+                };
+                
+                $.ajax("/api/likedArtists", {
+                    type: "POST",
+                    data: newArtist
+                }).then(
+                    function() {
+                        console.log("Successfully Liked");
+                    }
+                )
+            });
+    
+            $("#save-btn-song").on("click", function(event) {
+                event.preventDefault();
+                var newSong = {
+                    songName : $("#songName").text(),
+                    songArtist : $("#songArtist").text(),
+                    songAlbum : $("#songAlbum").text()
+                };
+                
+                $.ajax("/api/likedSongs", {
+                    type: "POST",
+                    data: newSong
+                }).then(
+                    function() {
+                        console.log("Successfully Liked");
+                    }
+                )
+            });
             // location.reload();
         });
 
@@ -137,63 +189,13 @@ $( document ).ready(function() {
                             </div>
                         </div>
                     </div>
-                    <button class="save-btn btn btn-primary", id = "save-btn-album" value="album">Like Album</button>
+                    <button class="save-btn btn btn-primary" id = "save-btn-album" value="album">Like Album</button>
                 </div>
             </div>
             `;
             $("#song-info").html(album);
         }
-        $(".save-btn-album").on("click", function(event) {
-            event.preventDefault();
-            var newAlbum = {
-                albumName : $("#album-name").text(),
-                albumArtist : $("#albumArtist").text()
-            };
-            
-            $.ajax("/api/likedAlbums", {
-                type: "POST",
-                data: newAlbum
-            }).then(
-                function() {
-                    console.log("Successfully Liked");
-                }
-            )
-        });
-
-        $(".save-btn-artist").on("click", function(event) {
-            event.preventDefault();
-            var newArtist = {
-                artist: $("#artist").text(),
-                
-            };
-            
-            $.ajax("/api/likedArtists", {
-                type: "POST",
-                data: newArtist
-            }).then(
-                function() {
-                    console.log("Successfully Liked");
-                }
-            )
-        });
-
-        $(".save-btn-song").on("click", function(event) {
-            event.preventDefault();
-            var newSong = {
-                songName : $("#songName").text(),
-                songArtist : $("#songArtist").text(),
-                songAlbum : $("#songAlbum").text()
-            };
-            
-            $.ajax("/api/likedSongs", {
-                type: "POST",
-                data: newSong
-            }).then(
-                function() {
-                    console.log("Successfully Liked");
-                }
-            )
-        });
+        
     
     })
 
