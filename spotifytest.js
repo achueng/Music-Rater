@@ -18,11 +18,13 @@ async function spotifySongSearch(songName = "Slow Mover") {
     });
 
     let songInfo = data.tracks.items;
+    
     let searchedSong = {
         Song: songInfo[0].name,
         Artist: songInfo[0].artists[0].name,
         Album: songInfo[0].album.name,
         Preview: songInfo[0].preview_url,
+        Image: songInfo[0].album.images[0].url
     }
    return searchedSong;
 }
@@ -71,4 +73,4 @@ async function spotifyArtistSearch( artistName = "DMA's"){
         spotifyAlbumSearch: spotifyAlbumSearch,
         spotifyArtistSearch: spotifyArtistSearch
     }
-spotifyArtistSearch();
+spotifySongSearch();
