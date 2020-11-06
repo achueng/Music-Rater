@@ -25,14 +25,7 @@ function printQuestionMarks(num) {
 var orm = {
     all: function(tableInput, col, cb) {
         // var queryString = "SELECT * FROM " + tableInput + ";";
-        var queryString = `SELECT 
-        *,
-        COUNT(*)
-        FROM
-        ${tableInput}
-        GROUP BY ${col}
-        HAVING COUNT(*) >= 1
-        ORDER BY COUNT(*) DESC;`
+        var queryString = `SELECT *, COUNT(*) FROM ${tableInput} GROUP BY ${col} HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC;`
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
