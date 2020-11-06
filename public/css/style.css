@@ -5,7 +5,7 @@
 }
 
 body {
-    font-size: 24px;
+    font-size: 26px;
     font-family: 'Turret Road', cursive;
     line-height: 32px;
     background-color: #ece1be;
@@ -20,16 +20,31 @@ body {
     font-size: 32px;
 }
 
-.hero-img {
+.container {
     width: 60%;
+}
+
+.hero-img {
+    width: 80%;
     margin: auto;
 }
 
 .search-btn {
     background-color: #a68e6c;
+    color: #ffffff;
 }
 
 #song-info{
     text-align: center;
     margin:auto;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .container {
+        width: 100%;
+    }
 }
