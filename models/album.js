@@ -2,7 +2,7 @@ const orm = require("../config/orm");
 
 const album = {
     all: function(cb) {
-        orm.all("topAlbums", "album", function(res) {
+        orm.allAlbums(function(res) {
           cb(res);
         });
       },
