@@ -107,6 +107,8 @@ $( document ).ready(function() {
          function songInfo(data) {
             let song = `
             <div class="card">
+            <img class="card-img-top mx-auto" src=${data.Image}  alt="Artist Image">
+
                 <div class="card-body">
                     <h3 class="card-title" id = "songName">${data.Song}</h3>
                     <h4>Artist: <span id = "songArtist">${data.Artist}</span></h4>
