@@ -23,9 +23,29 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
 var orm = {
-    all: function(tableInput, col, cb) {
+    allSongs: function(cb) {
         // var queryString = "SELECT * FROM " + tableInput + ";";
-        var queryString = `SELECT *, COUNT(*) FROM ${tableInput} GROUP BY ${col} HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC;`
+        var queryString = `SELECT song, artist, album, COUNT(*) FROM topSongs GROUP BY song HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC;`
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
+      },
+      allArtists: function(cb) {
+        // var queryString = "SELECT * FROM " + tableInput + ";";
+        var queryString = `SELECT artist, COUNT(*) FROM topArtists GROUP BY artist HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC;`
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
+        });
+      },
+      allAlbums: function(cb) {
+        // var queryString = "SELECT * FROM " + tableInput + ";";
+        var queryString = `SELECT album, artist, COUNT(*) FROM topAlbums GROUP BY album HAVING COUNT(*) >= 1 ORDER BY COUNT(*) DESC;`
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
